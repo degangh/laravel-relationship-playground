@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function country()
+    {
+        return $this->belongsTo('App\Country');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
 }
