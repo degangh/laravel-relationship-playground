@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public $attr = array("hometown" => "Qingdao");
+
     /**
      * The attributes that are mass assignable.
      *
@@ -45,5 +47,10 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany('App\Post');
+    }
+
+    public function __get($key)
+    {
+        return $this->attr[$key];
     }
 }
